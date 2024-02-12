@@ -6,7 +6,7 @@
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:42:54 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/12 14:57:50 by davyilma         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:21:14 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,39 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-void	ft_swap(char *a, char *b)
+void	ft_swap(char **a, char **b)
 {
-	char	tmp;
+	char	*tmp;
 
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
-int	main(int size, char **args)
+int main(int argc, char *args[])
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	while(args[i])
+	while (i < argc)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_strcmp(args[i], args[j]) > 0)
+				ft_swap(&args[i], &args[j]);
+			j++;
+		}
+		i++;
+	}
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		while (args[i][j])
+			write(1, &args[i][j++], 1);
+		write(1, "\n", 1);
+		i++;
+	}
 }
