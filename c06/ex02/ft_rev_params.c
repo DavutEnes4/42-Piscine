@@ -15,9 +15,7 @@
 int	main(int size, char **args)
 {
 	int	i;
-	int	j;
 
-	j = 1;
 	while (size-- > 1)
 	{
 		i = 0;
