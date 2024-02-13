@@ -6,7 +6,7 @@
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:29:08 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/04 15:38:28 by davyilma         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:26:49 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@ char	*ft_strcpy(char *dest, char *src)
 	i = -1;
 	while (src[++i])
 		dest[i] = src[i];
-	return (dest[i] = '\0', dest);
+	dest[i] = '\0';
+	return (dest);
 }

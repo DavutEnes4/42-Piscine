@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 20:11:39 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/13 17:07:10 by davyilma         ###   ########.fr       */
+/*   Created: 2024/02/13 13:57:50 by davyilma          #+#    #+#             */
+/*   Updated: 2024/02/13 14:27:04 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+#include <stdlib.h>
+
+int	ft_strlen(char *str)
 {
-	if (power == 0)
-		return (1);
-	else if (power < 0)
-		return (0);
-	else if (power > 1)
-		return (nb * ft_recursive_power(nb, (power - 1)));
-	return (nb);
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int	i;
+
+	i = -1;
+	while (src[++i])
+		dest[i] = src[i];
+	return (dest[i] = '\0', dest);
+}
+
+char	*ft_strdup(char *src)
+{
+	int		size;
+	char	*new;
+
+	size = ft_strlen(src);
+	new = malloc(sizeof(char) * (size + 1));
+	ft_strcpy(new, src);
+	return (new);
 }

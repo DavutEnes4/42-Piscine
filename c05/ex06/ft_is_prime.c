@@ -6,7 +6,7 @@
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 20:17:29 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/08 20:17:30 by davyilma         ###   ########.fr       */
+/*   Updated: 2024/02/13 17:08:36 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_prime(int nb)
 	i = 2;
 	if (nb <= 1)
 		return (0);
-	while (i <= (nb / 2))
+	while (i <= (nb / i))
 	{
 		if (!(nb % i))
 			return (0);

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 20:11:39 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/13 17:07:10 by davyilma         ###   ########.fr       */
+/*   Created: 2024/02/13 14:24:08 by davyilma          #+#    #+#             */
+/*   Updated: 2024/02/13 17:00:22 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+#include <stdlib.h>
+
+int	*ft_range(int min, int max)
 {
-	if (power == 0)
-		return (1);
-	else if (power < 0)
-		return (0);
-	else if (power > 1)
-		return (nb * ft_recursive_power(nb, (power - 1)));
-	return (nb);
+	int	i;
+	int	size;
+	int	*new;
+
+	size = max - min;
+	if (size <= 0)
+		return (NULL);
+	new = malloc(sizeof(int) * (size));
+	i = -1;
+	while (++i < size)
+		new[i] = min + i;
+	return (new);
 }

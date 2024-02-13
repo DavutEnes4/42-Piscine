@@ -6,7 +6,7 @@
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 14:42:54 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/12 15:21:14 by davyilma         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:10:49 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_swap(char **a, char **b)
 	*b = tmp;
 }
 
-int main(int argc, char *args[])
+int	main(int argc, char *args[])
 {
 	int	i;
 	int	j;
