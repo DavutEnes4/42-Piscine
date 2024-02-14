@@ -6,7 +6,7 @@
 /*   By: davyilma <davyilma@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 15:25:24 by davyilma          #+#    #+#             */
-/*   Updated: 2024/02/13 17:02:54 by davyilma         ###   ########.fr       */
+/*   Updated: 2024/02/14 11:32:43 by davyilma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,25 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_strcat(char *dest, char *src)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (dest[x])
+		x++;
+	y = 0;
+	while (src[y])
+		dest[x++] = src[y++];
+	dest[x] = '\0';
+	return (dest);
+}
+
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		i;
-	int		j;
 	int		count;
-	int		index;
 	char	*str;
 
 	if (size == 0)
@@ -56,24 +69,12 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	count = ft_strslen(strs) + ft_strlen(sep) * (size - 1) + 1;
 	str = malloc((sizeof(char) * count) + 1);
 	i = 0;
-	index = 0;
 	while (strs[i])
 	{
-		j = 0;
-		while (strs[i][j])
-			str[index++] = strs[i][j++];
-		j = 0;
-		while (sep[j] && index < count)
-			str[index++] = sep[j++];
+		ft_strcat(str, strs[i]);
+		if (i < (size - 1))
+			ft_strcat(str, sep);
 		i++;
 	}
 	return (str);
-}
-
-#include <stdio.h>
-int	main(int size, char **args)
-{
-	char *str = ft_strjoin(size,args," _ ");
-
-	printf("%s",str);
 }
